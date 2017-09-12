@@ -1,0 +1,26 @@
+[
+    {      
+      "name":"Max",
+      "drink":1,
+      "age":25,
+      "coupled":false    
+    },
+    {      
+      "name":"Dan",
+      "drink":1,
+      "age":25,
+      "coupled":false    
+    },
+    {      
+      "name":"Liza",
+      "drink":2,
+      "age":25,
+      "coupled":false    
+    },
+    {      
+      "name":"Rachel",
+      "drink":3,
+      "age":25,
+      "coupled":false    
+    }
+  ]
