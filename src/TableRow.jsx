@@ -6,18 +6,21 @@ class TableRow extends Component {
         changing:false, 
         name:this.props.name,
         drink:this.props.drink,
-        coupled:this.props.coupled
+        coupled:this.props.coupled,
+        age: this.props.age
     }
     handleChange = () => {               
         if (this.state.changing) {
             var name = this.state.name,
                 drink = this.state.drink,
                 coupled = this.state.coupled,
-                id = this.props.id; 
-                
-            this.setState({
-                changing:false
-            }, () => this.props.changeRow(id, { id, name, drink, coupled })) 
+                id = this.props.id,
+                age = this.state.age; 
+            if (name) {
+                this.setState({
+                    changing:false
+                }, () => this.props.changeRow(id, { id, name, drink, age, coupled })) 
+            }                
         } else {            
             this.setState({
                 changing:true
@@ -27,9 +30,9 @@ class TableRow extends Component {
     handleRemove = () => {
         this.props.removeRow(this.props.id);
     }
-    changeField = (e,name) => {        
+    changeField = (e,name) => {           
         this.setState({
-            [name]: e.target.value
+            [name]: name === "coupled" ? e.target.checked : e.target.value 
         })
     }
     render() {
@@ -46,6 +49,7 @@ class TableRow extends Component {
                     </select>
                 </td>
                 <td><input type="checkbox" checked = {this.state.coupled} onChange = {(e) => this.changeField(e, 'coupled')}  disabled = {!this.state.changing}/></td>
+                <td><input type="number" value = {this.state.age} onChange = {(e) => this.changeField(e, 'age')}  disabled = {!this.state.changing} /></td>
                 <td><button onClick = {this.handleChange}>{changing ? 'Применить' : 'Изменить'}</button></td>
                 <td><button onClick = {this.handleRemove}>Удалить</button></td>
             </tr> 

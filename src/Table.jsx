@@ -9,7 +9,7 @@ let Table = ({
     removeRow,
     addRow
 }) => {    
-    let getRows = () => {        
+    let getRows = () => {                
         return persons.map((p, i) => <TableRow  key = {p.id} 
                                                 {...p} 
                                                 id = {p.id} 
@@ -23,6 +23,7 @@ let Table = ({
                     <th>Имя</th>
                     <th>Напиток</th>
                     <th>Пара</th>
+                    <th>Возраст</th>
                     <th colSpan = {2}/>
                 </tr>
             </thead>                

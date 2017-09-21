@@ -7,11 +7,13 @@ class AddRow extends Component {
         this.refs.name.value = '';
         this.refs.drink.value = 1;
         this.refs.coupled.checked = false;
+        this.refs.age.value = 0;
     }
     handleAdd = () => {
         var name = this.refs.name.value,
             drink = this.refs.drink.value,
-            coupled = this.refs.coupled.checked, 
+            coupled = this.refs.coupled.checked,
+            age = this.refs.age.value, 
             id = v4();
         if (name) {
             this.props.addRow(id, { id, name, drink, coupled }, this.resetFields);
@@ -30,6 +32,7 @@ class AddRow extends Component {
                     </select>
                 </td>
                 <td><input type="checkbox" ref = "coupled"/></td>
+                <td><input type="number" ref = "age" /></td>
                 <td><button onClick = {this.handleAdd}>Добавить</button></td>                
             </tr>) 
     }

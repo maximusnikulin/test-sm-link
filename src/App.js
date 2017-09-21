@@ -84,8 +84,7 @@ class App extends Component {
     }
     return count;
   }
-  render() {
-    console.log(this.state.filter)
+  render() {    
     return (
       <div className = "wrapper">
         <div className = 'wrapper__filter'>
